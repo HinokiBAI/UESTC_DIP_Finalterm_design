@@ -1,0 +1,13 @@
+I=imread('rice.bmp');
+subplot(2,3,1),imshow(I,[]),title('原图像');
+J=histeq(I, 2);
+subplot(2,3,2),imshow(J,[]),title('二值化');
+subplot(2,3,3),surf(double(I(1:8:end,1:8:end))),zlim([0 255]);
+se=strel('disk', 15);
+B=imopen(I,se);
+C=imsubtract(I,B);
+subplot(2,3,4),imshow(C),title('顶帽变换');
+subplot(2,3,5),surf(double(I(1:8:end,1:8:end))),zlim([0 255]);
+D=imadjust(C);
+D=histeq(D,2);
+subplot(2,3,6),imshow(D),title('再次二值化');

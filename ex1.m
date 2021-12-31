@@ -1,0 +1,16 @@
+I = imread('bank.bmp');
+J1 = histeq(I, 128);
+J2 = histeq(I, 64);
+J3 = histeq(I, 32);
+J4 = histeq(I, 16);
+J5 = histeq(I, 8);
+J6 = histeq(I, 4);
+J7 = histeq(I, 2);
+subplot(1,8,1);imshow(I);title('原图像');
+subplot(1,8,2);imshow(J1);title('128');
+subplot(1,8,3);imshow(J2);title('64');
+subplot(1,8,4);imshow(J3);title('32');
+subplot(1,8,5);imshow(J4);title('16');
+subplot(1,8,6);imshow(J5);title('8');
+subplot(1,8,7);imshow(J6);title('4');
+subplot(1,8,8);imshow(J7);title('2');
